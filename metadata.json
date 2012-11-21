@@ -1,0 +1,35 @@
+{
+  "name": "cookbook-god",
+  "description": "Installs/Configures god",
+  "long_description": "Description\n===========\n\nInstalls [https://github.com/mojombo/god](God).\n\n\nUsage\n=====\n\nTo install via chef:\n\n  include_recipe \"god\"\n\n",
+  "maintainer": "Substantial",
+  "maintainer_email": "allen@substantial.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "rhel": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "god": "Installs god"
+  },
+  "version": "0.1.0"
+}
