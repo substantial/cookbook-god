@@ -1,7 +1,7 @@
 {
   "name": "cookbook-god",
   "description": "Installs/Configures god",
-  "long_description": "Description\n===========\n\nInstalls [https://github.com/mojombo/god](God).\n\n\nUsage\n=====\n\nTo install via chef:\n\n  include_recipe \"god\"\n\n",
+  "long_description": "Description\n===========\n\nInstalls [https://github.com/mojombo/god](God) under RVM.\n\n\nUsage\n=====\n\nTo install via chef:\n\n  include_recipe \"god\"\n\n",
   "maintainer": "Substantial",
   "maintainer_email": "allen@substantial.com",
   "license": "Apache 2.0",
@@ -31,5 +31,5 @@
   "recipes": {
     "god": "Installs god"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
