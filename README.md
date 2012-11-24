@@ -1,7 +1,7 @@
 Description
 ===========
 
-Installs [https://github.com/mojombo/god](God).
+Installs [https://github.com/mojombo/god](God) under RVM.
 
 
 Usage

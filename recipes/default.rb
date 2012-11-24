@@ -1,1 +1,1 @@
-gem_package "god"
+rvm_gem "god"
