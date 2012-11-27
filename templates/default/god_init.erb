@@ -4,12 +4,6 @@
 #
 # chkconfig: 2345 85 15
 # description: start, stop, restart God
-#
-# Also consider adding this line (kills god weekly) to your crontab (sudo crontab -e):
-#
-#    # deicide is painless
-#    0 1 * * 0 god quit; sleep 1; killall god; sleep 1; killall -9 god; sleep 1; /etc/init.d/god start
-#
 
 . /etc/rc.d/init.d/functions
 

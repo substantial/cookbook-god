@@ -3,6 +3,7 @@ gemset = node['god']['gemset'] || 'god'
 ruby_string = "#{ruby}@#{gemset}"
 config_dir = node['god']['config_dir']
 service_config_dir = node['god']['service_config_dir']
+god_bin = "#{node['rvm']['root_path']}/bin/god_god"
 
 rvm_gemset gemset do
   ruby_string ruby
@@ -43,11 +44,18 @@ template "/etc/init.d/god" do
   mode 0755
   variables(
     :god_config_path => "#{config_dir}/conf.god",
-    :god_bin => "#{node['rvm']['root_path']}/bin/god_god"
+    :god_bin => god_bin
   )
 end
 
 service "god" do
   supports :start => true, :stop => true, :restart => true, :status => true
   action [:enable, :start]
+end
+
+cron "restart god" do
+  minute "0"
+  hour "1"
+  weekday "0"
+  command "#{god_bin} quit; sleep 1; killall god; sleep 1; killall -9 god; sleep 1; /etc/init.d/god start"
 end
