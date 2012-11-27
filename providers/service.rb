@@ -11,7 +11,7 @@ end
 def load_current_resource
   @service = Chef::Resource::GodService.new(new_resource.service_name)
   @config_path = "#{node['god']['config_dir']}/conf.d/#{new_resource.service_name}.god"
-  @god_bin = "#{node['rvm']['root_path']}/bin/god_god"
+  @god_bin = "#{node['rvm']['root_path']}/bin/run_god"
 
   @god_running = false
   begin
