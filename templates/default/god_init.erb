@@ -19,7 +19,7 @@ prog="god"
 CONF="<%= @god_config_path %>"
 PID_FILE="/var/run/god/god.pid" ; mkdir -p `dirname $PID_FILE`
 LOG_FILE="/var/log/god/god.log" ; mkdir -p `dirname $LOG_FILE`
-GOD="<%= @god_path %>"
+GOD="<%= @god_bin %>"
 
 start()
 {

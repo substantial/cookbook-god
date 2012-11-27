@@ -1,7 +1,8 @@
 ruby = node['god']['ruby'] || node['rvm']['default_ruby']
 gemset = node['god']['gemset'] || 'god'
 ruby_string = "#{ruby}@#{gemset}"
-config_path = node['god']['config_path']
+config_dir = node['god']['config_dir']
+service_config_dir = node['god']['service_config_dir']
 
 rvm_gemset gemset do
   ruby_string ruby
@@ -16,7 +17,7 @@ rvm_wrapper "god" do
   binary "god"
 end
 
-[config_path, "#{config_path}/conf.d"].each do |directory|
+[config_dir, service_config_dir].each do |directory|
   directory directory do
     recursive true
     owner "root"
@@ -25,13 +26,13 @@ end
   end
 end
 
-template "#{config_path}/conf.god" do
+template "#{config_dir}/conf.god" do
   source "conf.god.erb"
   owner "root"
   group "root"
   mode 0755
   variables(
-    :config_paths => "#{config_path}/conf.d/*.god",
+    :config_paths => "#{service_config_dir}/*.god",
   )
 end
 
@@ -41,8 +42,8 @@ template "/etc/init.d/god" do
   group "root"
   mode 0755
   variables(
-    :god_config_path => "#{config_path}/conf.god",
-    :god_path => "#{node['rvm']['root_path']}/bin/god_god"
+    :god_config_path => "#{config_dir}/conf.god",
+    :god_bin => "#{node['rvm']['root_path']}/bin/god_god"
   )
 end
 
