@@ -13,6 +13,8 @@ rvm_gem "god" do
   ruby_string ruby_string
 end
 
+# Generates a run_god script that invokes god in the appropriate
+# ruby and rubygem, this is part of the rvm cookbook
 rvm_wrapper "run" do
   ruby_string ruby_string
   binary "god"
