@@ -3,7 +3,7 @@ gemset = node['god']['gemset'] || 'god'
 ruby_string = "#{ruby}@#{gemset}"
 config_dir = node['god']['config_dir']
 service_config_dir = node['god']['service_config_dir']
-god_bin = "#{node['rvm']['root_path']}/bin/god_god"
+god_bin = "#{node['rvm']['root_path']}/bin/run_god"
 
 rvm_gemset gemset do
   ruby_string ruby
@@ -13,7 +13,7 @@ rvm_gem "god" do
   ruby_string ruby_string
 end
 
-rvm_wrapper "god" do
+rvm_wrapper "run" do
   ruby_string ruby_string
   binary "god"
 end
